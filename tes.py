@@ -9,6 +9,7 @@ import logging
 
 
 class _JSONEncoder(json.JSONEncoder):
+    #for json strings
     def default(self, obj):
         if isinstance(obj, datetime.date):
             return obj.isoformat()

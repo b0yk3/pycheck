@@ -2,7 +2,7 @@ ulist = "/list"
 udata = "/data"
 col = [{ id: "User", header: "User", width: 100 },
 { id: "Time", header: "Time", width: 50 },
-{ id: "Host", header: "Remote", width: 150 },
+{ id: "Host", header: "Client Host", width: 150 },
 { id: "db", header: "Database", width: 150 },
 { id: "Info", header: "Description", width: screen.width - 850 },
 { id: "State", header: "Status", width: 200 }
