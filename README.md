@@ -1,10 +1,11 @@
-# pyCheck
+# pycheck
 
-using:
+using lib:
 -   cherrypy
 -   webix
 -   pymysqllib
 
+```yml
 app.conf:
 -   [mydb]
     host=[..]
@@ -21,3 +22,4 @@ app.conf:
 
 -   [sqlscript]
     [..all's sql script needed..]       
+```
