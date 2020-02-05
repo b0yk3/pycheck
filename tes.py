@@ -45,8 +45,6 @@ class Test(object):
 
     @cherrypy.expose
     @cherrypy.tools.json_out(handler=json_handler)
-    @cherrypy.tools.gzip(on=True)
-    @cherrypy.tools.gzip(mime_types=['text/*', 'application/*'])
     def data(self, tgl="ALL"):
         try:
             ssql = cherrypy.request.app.config["sqlscript"]["sql01"]
@@ -72,8 +70,6 @@ class Test(object):
 
     @cherrypy.expose
     @cherrypy.tools.json_out(handler=json_handler)
-    @cherrypy.tools.gzip(on=True)
-    @cherrypy.tools.gzip(mime_types=['text/*', 'application/*'])
     def list(self):
         conn = self.myconn()
         cur = conn.cursor()
