@@ -56,7 +56,7 @@ class Test(object):
 
             conn = self.myconn()
             cur = conn.cursor()
-            logging.warning(ssql)
+            #logging.warning(ssql)
             cur.execute(ssql)
             json_data = []
             hasil = cur.fetchall()
