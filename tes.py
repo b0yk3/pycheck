@@ -81,6 +81,26 @@ class Test(object):
         cherrypy.response.headers["Access-Control-Allow-Origin"] = "*"
         return json_data
 
+    @cherrypy.expose
+    @cherrypy.tools.json_out(handler=json_handler)
+    def list02(self):
+        host = cherrypy.request.app.config["mydb"]["host002"]
+        user = cherrypy.request.app.config["mydb"]["user002"]
+        passwd = cherrypy.request.app.config["mydb"]["passwd002"]
+        database = cherrypy.request.app.config["mydb"]["database002"]
+
+        othconn = pymysql.connect(host, user, passwd, database,
+                               cursorclass=pymysql.cursors.DictCursor)
+        cur = othconn.cursor()
+        cur.execute('show full processlist')
+
+        json_data = []
+        hasil = cur.fetchall()
+        for isi in hasil:
+            json_data.append(isi)
+        cherrypy.response.headers["Access-Control-Allow-Origin"] = "*"
+        return json_data
+
 
 cherrypy.server.socket_host = '0.0.0.0'
 if __name__ == "__main__":
